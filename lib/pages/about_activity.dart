@@ -19,7 +19,7 @@ class _AboutActivityState extends State<AboutActivity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('About Activity')),
+      appBar: AppBar(title: Text(widget.title)),
       body: const Center(
         child: Text('Details about the activity will be shown here.'),
       ),
