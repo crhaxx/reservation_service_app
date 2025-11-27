@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:reservation_service_app/models/activity.dart';
-import 'package:reservation_service_app/pages/about_activity.dart';
 import 'package:reservation_service_app/services/local_service.dart';
+import 'package:reservation_service_app/widgets/activity_item.dart';
+import 'package:reservation_service_app/widgets/activity_selector.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -28,6 +29,7 @@ class _HomepageState extends State<Homepage> {
                   decoration: const InputDecoration(labelText: 'Activity Name'),
                   controller: _nameController,
                 ),
+                ActivitySelector(),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () async {
@@ -76,27 +78,11 @@ class _HomepageState extends State<Homepage> {
                       itemCount: activities.length,
                       itemBuilder: (context, index) {
                         final activity = activities[index];
-                        return ListTile(
-                          title: Text(activity.name),
-                          subtitle: Text(activity.date.toString()),
-                          trailing: IconButton(
-                            icon: Icon(Icons.delete),
-                            onPressed: () {
-                              LocalService.deleteActivity(activity.id);
-                            },
-                          ),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => AboutActivity(
-                                  title: activity.name,
-                                  description: activity.description,
-                                  date: activity.date,
-                                ),
-                              ),
-                            );
-                          },
+                        return ActivityItem(
+                          id: activity.id,
+                          title: activity.name,
+                          description: activity.description,
+                          date: activity.date,
                         );
                       },
                     ),

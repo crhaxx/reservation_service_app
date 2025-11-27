@@ -13,6 +13,7 @@ class LocalService {
   static Future<void> createNewActivity(String name) async {
     final activity = Activity()
       ..name = name
+      ..description = 'Default Description'
       ..date = DateTime.now();
 
     await isar.writeTxn(() async {

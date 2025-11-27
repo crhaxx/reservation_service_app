@@ -1,12 +1,14 @@
 name: reservation_service_app
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
   sdk: ^3.9.2
 
 dependencies:
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
   flutter:
     sdk: flutter
   isar: ^3.1.0+1
