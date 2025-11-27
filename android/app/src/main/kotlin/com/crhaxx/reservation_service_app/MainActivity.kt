@@ -1,4 +1,4 @@
-package com.example.reservation_service_app
+package com.crhaxx.reservation_service_app
 
 import io.flutter.embedding.android.FlutterActivity
 
